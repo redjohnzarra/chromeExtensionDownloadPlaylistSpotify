@@ -9,14 +9,12 @@ chrome.tabs.onUpdated.addListener( function (tabId, changeInfo, tab) {
             if(currURL.indexOf("fildo.net") > -1){
                 chrome.tabs.executeScript(null, { file: "jquery.min.js" }, function() {
                     chrome.tabs.executeScript(null, { file: "jquery.tools.min.js" }, function() {
-                        chrome.tabs.executeScript(null, { file: "jquery.waituntilexists.min.js" }, function(){
-                            //load config script
-                            chrome.tabs.executeScript(null, { file: "config.js" }, function(){
-                                if (changeInfo.status == 'complete') {
-                                        console.log("Spotify Downloader")
-                                        chrome.tabs.executeScript(null,{file:"spotify_downloader.js"});
-                                }
-                            });
+                        //load config script
+                        chrome.tabs.executeScript(null, { file: "config.js" }, function(){
+                            if (changeInfo.status == 'complete') {
+                                    console.log("Spotify Downloader")
+                                    chrome.tabs.executeScript(null,{file:"spotify_downloader.js"});
+                            }
                         });
                     });
                 });
