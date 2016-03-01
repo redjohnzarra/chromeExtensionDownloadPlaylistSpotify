@@ -1,0 +1,37 @@
+{
+  "manifest_version": 2,
+
+  "name": "Spotify Downloader",
+  "description": "This extension downloads songs from Spotify",
+  "version": "1.0",
+
+
+ "permissions": [
+    "http://*/*",
+    "https://*/*",
+    "http://*/",
+    "https://*/",
+    "file://*/*",
+    "<all_urls>",
+    "tabs",
+    "storage",
+    "cookies",
+    "browsingData"
+  ],
+
+  "browser_action": {
+    "default_icon": "images/icon-on.png",
+    "default_title": "Spotify Downloader On"
+  },
+
+  "content_scripts": [ {
+    "run_at": "document_end",
+    "js": [ "async.js" ],
+    "matches": [ "http://*/*", "https://*/*"]
+  }],
+
+  "background": {
+    "scripts": ["async.js","background.js"]
+  }
+
+}
